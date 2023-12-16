@@ -1,0 +1,69 @@
+{
+  "name": "e-acc-copilot",
+  "displayName": "e/acc Copilot",
+  "description": "Choose any OpenAI model to use for code generation. For the brave and the free",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mermelstein/e-acc-copilot.git"
+  },
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.63.2"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:extension.aiask"
+  ],
+  "main": "src/extension.js",
+  "contributes": {
+    "configuration": {
+      "properties": {
+        "e-acc-copilot.openAIKey": {
+          "type": "string",
+          "default": "",
+          "description": "Your OpenAI key"
+        },
+        "e-acc-copilot.gptModel": {
+          "type": "string",
+          "default": "gpt-4-0613",
+          "description": "The GPT model to use"
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "e-acc-copilot.aiask",
+        "title": "AI Ask"
+      }
+    ]
+  },
+  "scripts": {
+    "compile": "webpack",
+    "watch": "webpack --watch",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "npm run compile-tests && npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.6",
+    "@types/node": "18.x",
+    "@types/vscode": "^1.63.2",
+    "@typescript-eslint/eslint-plugin": "^6.13.1",
+    "@typescript-eslint/parser": "^6.13.1",
+    "@vscode/test-cli": "^0.0.4",
+    "@vscode/test-electron": "^2.3.8",
+    "eslint": "^8.54.0",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.3.2",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "openai": "^4.22.0"
+  }
+}
