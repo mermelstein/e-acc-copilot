@@ -29,23 +29,24 @@ function activate(context) {
       return;
     }
   
-    const filePath = path.join(workspaceFolders[0].uri.fsPath, 'llm.txt');
-    if (!fs.existsSync(filePath)) {
-      vscode.window.showErrorMessage('The file llm.txt does not exist in the workspace folder. Please open it or create a new file called llm.txt');
-      return;
-    }
-    
-    // Save llm.txt if it's open
-    for (const doc of vscode.workspace.textDocuments) {
-      if (doc.fileName === filePath && !doc.isUntitled) {
-        await doc.save();
+    vscode.workspace.findFiles('**/llm.txt', '**/node_modules/**', 1).then(async (files) => {
+      if (files.length === 0) {
+        vscode.window.showErrorMessage('The file llm.txt does not exist in the workspace. Please create a new file called llm.txt');
+        return;
       }
-    }
-
-    const fileContent = fs.readFileSync(filePath, 'utf8');
-
-    vscode.window.withProgress({
-      location: vscode.ProgressLocation.Notification,
+      const filePath = files[0].fsPath;
+    
+      // Save llm.txt if it's open
+      for (const doc of vscode.workspace.textDocuments) {
+        if (doc.fileName === filePath && !doc.isUntitled) {
+          await doc.save();
+        }
+      }
+    
+      const fileContent = fs.readFileSync(filePath, 'utf8');
+    
+      vscode.window.withProgress({
+        location: vscode.ProgressLocation.Notification,
       title: "AI",
       cancellable: false
     }, async (progress, token) => {
@@ -80,6 +81,7 @@ function activate(context) {
 
       vscode.window.showInformationMessage('The AI is done answering.');
     });
+  });
   }));
 };
 

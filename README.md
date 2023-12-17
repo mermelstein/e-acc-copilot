@@ -20,6 +20,9 @@ This is a Visual Studio Code extension that uses OpenAI's GPT model to generate 
 
 The AI's response will be appended to `llm.txt`.
 
+If you want to update the OpenAI model you're using or your API key, open the e/acc Copilot settings from the Extension panel. Open `Extension Settings` and in the User tab update the values for GPT Model and/or OpenAI Key.
+If these are empty (ie you just installed the extension) you will be prompted for them when you run the `AI Ask` command.
+
 ## Requirements
 
 * Visual Studio Code 1.58.0 or later

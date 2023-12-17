@@ -7,7 +7,7 @@
     "type": "git",
     "url": "https://github.com/mermelstein/e-acc-copilot.git"
   },
-  "version": "0.0.2",
+  "version": "0.0.6",
   "engines": {
     "vscode": "^1.63.2"
   },
@@ -15,7 +15,7 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:e-acc-copilot.aiask"
+    "onStartupFinished"
   ],
   "main": "src/extension.js",
   "contributes": {
