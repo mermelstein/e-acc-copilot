@@ -2,6 +2,10 @@
 
 This is a Visual Studio Code extension that uses OpenAI's GPT model to generate text based on the content of a file named `llm.txt` in your workspace.
 
+Get it here:
+
+[![Visual Studio Marketplace](https://img.shields.io/badge/Marketplace-e--acc--copilot-blue?logo=visual-studio-code)](https://marketplace.visualstudio.com/items?itemName=YourPublisherName.e-acc-copilot)
+
 ## Features
 
 * Prompts for OpenAI key and GPT model if not already set in the configuration settings.
