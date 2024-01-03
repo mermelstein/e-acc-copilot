@@ -4,7 +4,8 @@ This is a Visual Studio Code extension that uses OpenAI's GPT model to generate 
 
 Get it here:
 
-[![Visual Studio Marketplace](https://img.shields.io/badge/Marketplace-e--acc--copilot-blue?logo=visual-studio-code)](https://marketplace.visualstudio.com/items?itemName=YourPublisherName.e-acc-copilot)
+[![Visual Studio Marketplace](https://img.shields.io/badge/Marketplace-e--acc--copilot-blue?logo=visual-studio-code)](https://marketplace.visualstudio.com/items?itemName=mermelstein.e-acc-copilot)
+
 
 ## Features
 
